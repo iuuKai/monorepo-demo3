@@ -13,7 +13,11 @@
 	],
 	"rewrites": [
 		{
-			"source": "/project-A/(.*)",
+			"source": "/project-C/:path",
+			"destination": "/project-C/:path"
+		},
+		{
+			"source": "/:path",
 			"destination": "/project-A/app.js"
 		}
 	]
