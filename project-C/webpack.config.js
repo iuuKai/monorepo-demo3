@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ejs = require('ejs')
 require('dotenv').config()
 
+const BASE_URL = process.env.BASE_URL
 // ======================================
 // 自动获取多页面入口（核心功能）
 // ======================================
@@ -29,7 +30,7 @@ const getPages = () => {
 				templateContent: ejs.render(
 					templateContent,
 					{
-						BASE_URL: process.env.BASE_URL
+						BASE_URL: BASE_URL
 					},
 					{
 						filename: templatePath,
@@ -37,7 +38,7 @@ const getPages = () => {
 					}
 				),
 				templateParameters: {
-					BASE_URL: process.env.BASE_URL
+					BASE_URL: BASE_URL
 				},
 				chunks: [page], // 只引入当前页面JS
 				minify:
@@ -65,7 +66,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/[name].[contenthash:8].js',
 		assetModuleFilename: 'static/[name].[contenthash:8][ext]',
-		publicPath: '/project-C/'
+		publicPath: BASE_URL
 	},
 
 	// 模块解析
