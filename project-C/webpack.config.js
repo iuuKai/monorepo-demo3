@@ -58,7 +58,8 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/[name].[contenthash:8].js',
-		assetModuleFilename: 'static/[name].[contenthash:8][ext]'
+		assetModuleFilename: 'static/[name].[contenthash:8][ext]',
+		publicPath: '/project-C/'
 	},
 
 	// 模块解析
