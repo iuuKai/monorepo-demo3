@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ejs = require('ejs')
+require('dotenv').config()
 
 // ======================================
 // 自动获取多页面入口（核心功能）
@@ -27,12 +28,17 @@ const getPages = () => {
 				filename: `${page}.html`, // 输出：index.html / about.html
 				templateContent: ejs.render(
 					templateContent,
-					{},
+					{
+						BASE_URL: process.env.BASE_URL
+					},
 					{
 						filename: templatePath,
 						views: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'src/common')]
 					}
 				),
+				templateParameters: {
+					BASE_URL: process.env.BASE_URL
+				},
 				chunks: [page], // 只引入当前页面JS
 				minify:
 					process.env.NODE_ENV === 'production'
