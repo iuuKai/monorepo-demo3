@@ -2,6 +2,10 @@
 	"version": 2,
 	"builds": [
 		{
+			"src": "project-A/app.js",
+			"use": "@vercel/node"
+		},
+		{
 			"src": "project-C/package.json",
 			"use": "@vercel/static-build",
 			"config": { "distDir": "dist" }
@@ -9,8 +13,8 @@
 	],
 	"rewrites": [
 		{
-			"source": "/about123.html",
-			"destination": "/dist/index.html"
+			"source": "/project-A/(.*)",
+			"destination": "/project-A/app.js"
 		}
 	]
 }
