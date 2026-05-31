@@ -1,7 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import { resolve } from 'path'
 import { ViteEjsPlugin } from 'vite-plugin-ejs'
-import path from 'path'
 
 export default defineConfig(({ command, mode }) => {
 	const env = loadEnv(mode, process.cwd(), '')
@@ -12,6 +11,7 @@ export default defineConfig(({ command, mode }) => {
 	const baseURL = isBuild ? env.BASE_URL : '/'
 
 	return {
+		root: 'src',
 		base: baseURL,
 		plugins: [
 			ViteEjsPlugin(
@@ -26,27 +26,31 @@ export default defineConfig(({ command, mode }) => {
 		resolve: {
 			alias: {
 				'@': resolve(__dirname, 'src'),
-				'@assets': path.resolve(__dirname, 'src/assets'),
-				'@css': path.resolve(__dirname, 'src/assets/css'),
-				'@js': path.resolve(__dirname, 'src/assets/js'),
-				'@images': path.resolve(__dirname, 'src/assets/images')
+				'@assets': resolve(__dirname, 'src/assets'),
+				'@css': resolve(__dirname, 'src/assets/css'),
+				'@js': resolve(__dirname, 'src/assets/js'),
+				'@images': resolve(__dirname, 'src/assets/images')
 			}
 		},
 		build: {
-			outDir: 'dist',
-			assetsDir: 'static',
+			outDir: resolve(__dirname, 'dist'),
+			assetsDir: 'assets',
 			rollupOptions: {
 				input: {
 					index: resolve(__dirname, 'src/pages/home/index.html'),
 					about: resolve(__dirname, 'src/pages/about/index.html')
+				},
+				output: {
+					chunkFileNames: 'assets/js/[name]-[hash].js',
+					entryFileNames: 'assets/js/[name]-[hash].js',
+					assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
 				}
 			}
 		},
 		server: {
 			port: 3000,
-			// open: '/',
+			open: '/pages/home/index.html',
 			hot: true
-		},
-		root: './src'
+		}
 	}
 })
