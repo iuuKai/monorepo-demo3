@@ -21,6 +21,10 @@
 			"destination": "/project-A/app.js"
 		},
 		{
+			"source": "/project-B/:path*",
+			"destination": "/project-B/:path*"
+		},
+		{
 			"source": "/project-C/:path*",
 			"destination": "/project-C/:path*"
 		},
