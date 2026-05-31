@@ -11,7 +11,7 @@
 			"config": { "distDir": "dist" }
 		},
 		{
-			"src": "project-C/**/*",
+			"src": "project-D/**/*",
 			"use": "@vercel/static"
 		}
 	],
