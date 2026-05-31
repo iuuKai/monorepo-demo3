@@ -31,7 +31,7 @@
 		},
 		{
 			"source": "/project-B/:path*",
-			"destination": "/project-B/:path*"
+			"destination": "/project-B/index.html"
 		},
 		{
 			"source": "/project-C/:path*",
