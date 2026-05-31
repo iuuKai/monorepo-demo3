@@ -1,0 +1,6 @@
+{
+	"project-A": ["express"],
+	"project-B": ["vite", "vue3"],
+	"project-D": ["webpack", "jquery", "ejs"],
+	"project-E": ["static"]
+}

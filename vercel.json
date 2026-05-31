@@ -18,17 +18,15 @@
 		{
 			"src": "project-D/package.json",
 			"use": "@vercel/static-build",
+			"config": { "distDir": "dist" }
+		},
+		{
+			"src": "project-E/package.json",
+			"use": "@vercel/static-build",
 			"config": {
 				"buildCommand": "node build.js",
 				"distDir": "dist"
 			}
-		}
-	],
-	"redirects": [
-		{
-			"source": "/project-C/",
-			"destination": "/project-C/index.html",
-			"permanent": true
 		}
 	],
 	"rewrites": [
@@ -45,12 +43,20 @@
 			"destination": "/project-C/:path*"
 		},
 		{
-			"source": "/project-D/",
-			"destination": "/project-D/index.html"
+			"source": "/project-D/:path*",
+			"destination": "/project-D/:path*"
 		},
 		{
 			"source": "/project-D/:path*",
 			"destination": "/project-D/:path*"
+		},
+		{
+			"source": "/project-E/",
+			"destination": "/project-E/index.html"
+		},
+		{
+			"source": "/project-E/:path*",
+			"destination": "/project-E/:path*"
 		},
 		{
 			"source": "/:path*",

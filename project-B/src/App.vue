@@ -16,11 +16,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
+const isBuild = import.meta.env.BASE_URL !== '/'
 const router = useRouter()
-const isBuild = ref(false)
 const navItems = ref([
 	{
 		name: 'Home',
@@ -42,19 +42,15 @@ const navItems = ref([
 const toPage = path => {
 	router.push(path)
 }
-
-onMounted(() => {
-	isBuild.value = location.pathname.startsWith('/project-B/')
-})
 </script>
 
 <style scoped>
 .container {
+	width: 400px;
 	margin: 20vh auto 0;
 	padding: 20px;
-	width: 400px;
-	background-color: #fff;
 	border-radius: 10px;
+	background-color: #fff;
 }
 .nav-item {
 	line-height: 40px;

@@ -4,7 +4,7 @@
 		<div class="user-list">
 			<div class="loading" v-if="isLoading">
 				<span v-if="isBuild">加载中...</span>
-				<span v-else>请前往vercel部署</span>
+				<span v-else>请运行 vercel dev 或者部署到 vercel 上查看</span>
 			</div>
 			<template v-else>
 				<ul v-if="userList.length > 0">
@@ -43,8 +43,8 @@ onBeforeMount(async () => {
 
 <style scoped>
 .user-list {
-	max-height: 300px;
 	overflow-y: auto;
+	max-height: 300px;
 }
 .user-list ul li {
 	line-height: 40px;
