@@ -5,11 +5,11 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.get('/project-A/api/hello', (req, res) => {
+app.get('/', (req, res) => {
 	res.send('Hello Express CommonJS')
 })
 
-app.get('/project-A/api/user', (req, res) => {
+app.get('/api/user', (req, res) => {
 	res.json({ name: 'test', age: 20 })
 })
 
