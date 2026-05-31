@@ -104,12 +104,28 @@ function replaceAllFiles(dir) {
 			(_, type, url) => `"${BASE_URL}${type}/${url}"`
 		)
 
-		// 10. JS 文件中的模板字符串（反引号）- 单独处理避免转义问题
-		content = content.replace(/\/`\/([\w]+)\/([^`]+)`/g, (_, slash, type, url) => {
-			if (dirs.includes(type)) {
-				return `\`${BASE_URL}${type}/${url}\``
+		// 10. JS 文件中的模板字符串（反引号）
+		// 例如: `/assets/css/${pageName}.css` -> `/project-D/assets/css/${pageName}.css`
+		// 使用字符串索引方式处理，避免正则中特殊字符问题
+		dirs.forEach(dirName => {
+			const backtickSearch = '`/' + dirName + '/'
+			let idx = content.indexOf(backtickSearch)
+			while (idx !== -1) {
+				const startIdx = idx
+				const endIdx = content.indexOf('`', startIdx + 1)
+				if (endIdx !== -1) {
+					// 去掉首尾反引号: `/assets/css/${pageName}.css` -> /assets/css/${pageName}.css
+					const inner = content.substring(startIdx + 1, endIdx)
+					// inner 格式: /assets/css/${pageName}.css
+					// 去掉开头的斜杠: assets/css/${pageName}.css
+					const innerWithoutSlash = inner.substring(1)
+					const newTemplate = '`' + BASE_URL + innerWithoutSlash + '`'
+					content = content.substring(0, startIdx) + newTemplate + content.substring(endIdx + 1)
+					idx = content.indexOf(backtickSearch, startIdx + newTemplate.length)
+				} else {
+					break
+				}
 			}
-			return _
 		})
 
 		// 11. CSS 中的 url() 路径：url('/xxx')
