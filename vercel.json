@@ -26,7 +26,7 @@
 		},
 		{
 			"source": "/:path*",
-			"destination": "/project-A/app.js"
+			"destination": "/"
 		}
 	]
 }
