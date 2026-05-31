@@ -1,7 +1,14 @@
 const express = require('express')
 const path = require('path')
 const fs = require('fs')
+const cors = require('cors')
 const app = express()
+
+// 添加 CORS 支持，允许所有来源访问
+app.use(cors())
+
+// 解析 JSON 请求体
+app.use(express.json())
 
 app.get('/', (req, res) => {
 	res.send('Hello Express!')
