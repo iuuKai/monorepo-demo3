@@ -16,8 +16,12 @@
 			"config": { "distDir": "dist" }
 		},
 		{
-			"src": "project-D/**/*",
-			"use": "@vercel/static"
+			"src": "project-D/package.json",
+			"use": "@vercel/static-build",
+			"config": {
+				"buildCommand": "node build.js",
+				"distDir": "dist"
+			}
 		}
 	],
 	"rewrites": [
