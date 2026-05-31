@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<div v-if="isSubProject" class="sup-nav">
+		<div v-if="isBuild" class="sup-nav">
 			<a href="/">返回导航</a>
 		</div>
 		<div class="nav">
@@ -11,7 +11,7 @@
 				</li>
 			</ul>
 		</div>
-		<router-view :isSubProject="isSubProject"></router-view>
+		<router-view :isBuild="isBuild"></router-view>
 	</div>
 </template>
 
@@ -20,7 +20,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const isSubProject = ref(location.pathname.startsWith('/p/'))
+const isBuild = ref(false)
 const navItems = ref([
 	{
 		name: 'Home',
@@ -42,6 +42,10 @@ const navItems = ref([
 const toPage = path => {
 	router.push(path)
 }
+
+onMounted(() => {
+	isBuild.value = location.pathname.startsWith('/project-B/')
+})
 </script>
 
 <style scoped>
