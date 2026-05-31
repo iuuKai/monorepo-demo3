@@ -9,6 +9,10 @@
 			"src": "project-C/package.json",
 			"use": "@vercel/static-build",
 			"config": { "distDir": "dist" }
+		},
+		{
+			"src": "project-C/**/*",
+			"use": "@vercel/static"
 		}
 	],
 	"rewrites": [
