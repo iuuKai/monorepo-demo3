@@ -47,7 +47,7 @@
 		},
 		{
 			"source": "/:path*",
-			"destination": "/project-A/app.js"
+			"destination": "/project-A/src/index.js"
 		}
 	]
 }
