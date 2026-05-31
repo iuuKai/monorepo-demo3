@@ -26,7 +26,7 @@
 		},
 		{
 			"source": "/:path*",
-			"destination": "/"
+			"destination": "/project-A/:path*"
 		}
 	]
 }
