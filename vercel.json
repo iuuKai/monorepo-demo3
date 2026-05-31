@@ -17,16 +17,20 @@
 	],
 	"rewrites": [
 		{
+			"source": "/",
+			"destination": "/project-A/app.js"
+		},
+		{
 			"source": "/project-C/:path*",
 			"destination": "/project-C/:path*"
 		},
 		{
-			"source": "/project-D/(.*)",
-			"destination": "/project-D/$1"
+			"source": "/project-D/:path*",
+			"destination": "/project-D/:path*"
 		},
 		{
 			"source": "/:path*",
-			"destination": "/project-A/:path*"
+			"destination": "/project-A/app.js"
 		}
 	]
 }
