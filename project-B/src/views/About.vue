@@ -2,7 +2,10 @@
 	<div>
 		<h1>About</h1>
 		<div class="user-list">
-			<div class="loading" v-if="isLoading">加载中...</div>
+			<div class="loading" v-if="isLoading">
+				<span v-if="isBuild">加载中...</span>
+				<span v-else>请前往vercel部署</span>
+			</div>
 			<template v-else>
 				<ul v-if="userList.length > 0">
 					<li v-for="user in userList" :key="user.id">{{ user.name }} - {{ user.email }}</li>
@@ -17,7 +20,7 @@
 import { ref, onBeforeMount } from 'vue'
 
 const props = defineProps({
-	isSubProject: {
+	isBuild: {
 		type: Boolean,
 		default: false
 	}
@@ -27,7 +30,7 @@ const userList = ref([])
 const isLoading = ref(true)
 
 onBeforeMount(async () => {
-	if (props.isSubProject) {
+	if (props.isBuild) {
 		userList.value = await fetch('/api/user/all')
 			.then(res => res.json())
 			.then(res => {
