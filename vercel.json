@@ -6,6 +6,11 @@
 			"use": "@vercel/node"
 		},
 		{
+			"src": "project-B/package.json",
+			"use": "@vercel/static-build",
+			"config": { "distDir": "dist" }
+		},
+		{
 			"src": "project-C/package.json",
 			"use": "@vercel/static-build",
 			"config": { "distDir": "dist" }
@@ -19,6 +24,10 @@
 		{
 			"source": "/",
 			"destination": "/project-A/app.js"
+		},
+		{
+			"source": "/project-B/:path*",
+			"destination": "/project-B/:path*"
 		},
 		{
 			"source": "/project-C/:path*",
