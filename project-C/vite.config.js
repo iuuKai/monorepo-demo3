@@ -37,7 +37,8 @@ export default defineConfig(({ command, mode }) => {
 			assetsDir: 'assets',
 			rollupOptions: {
 				input: {
-					index: resolve(__dirname, 'src/pages/home/index.html'),
+					index: resolve(__dirname, 'src/index.html'),
+					home: resolve(__dirname, 'src/pages/home/index.html'),
 					about: resolve(__dirname, 'src/pages/about/index.html')
 				},
 				output: {
@@ -49,7 +50,7 @@ export default defineConfig(({ command, mode }) => {
 		},
 		server: {
 			port: 3000,
-			open: '/pages/home/index.html',
+			open: '/',
 			hot: true
 		}
 	}

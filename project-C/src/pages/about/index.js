@@ -2,7 +2,7 @@ import $ from 'jquery'
 import '@js/common.js'
 import './index.css'
 
-const isBuild = window.isBuild
+const isBuild = import.meta.env.BASE_URL !== '/'
 const $userList = $('.user-list')
 
 // 显示加载状态
