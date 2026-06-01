@@ -6,8 +6,7 @@
 <div class="nav">
 	<% const navItems = [ { name: 'Home', path: `${BASE_URL}pages/home/index.html`, description:
 	'加载图片资源' }, { name: 'About', path: `${BASE_URL}pages/about/index.html`, description:
-	'请求主项目接口' }, { name: '404', path: `/404/${Date.now()}.html`, description: '404错误页' } ]
-	%>
+	'请求主项目接口' }, { name: '404', path: `/404/${Date.now()}`, description: '404错误页' } ] %>
 	<ul>
 		<% navItems.forEach(item => { %>
 		<li class="nav-item" data-path="<%= item.path %>">

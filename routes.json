@@ -1,6 +1,8 @@
 {
 	"project-A": ["express"],
-	"project-B": ["vite", "vue3"],
+	"project-B": ["vite", "vue"],
+	"project-C": ["vite", "jquery", "vite-plugin-ejs"],
 	"project-D": ["webpack", "jquery", "ejs"],
-	"project-E": ["static"]
+	"project-E": ["static"],
+	"project-F": ["nuxt3"]
 }
