@@ -47,10 +47,6 @@
 			"destination": "/project-D/:path*"
 		},
 		{
-			"source": "/project-D/:path*",
-			"destination": "/project-D/:path*"
-		},
-		{
 			"source": "/project-E/",
 			"destination": "/project-E/index.html"
 		},
