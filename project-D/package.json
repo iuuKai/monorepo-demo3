@@ -5,12 +5,14 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "webpack serve --mode development",
-		"build": "webpack --mode production"
+		"build": "cross-env NODE_ENV=production webpack --mode production"
 	},
 	"devDependencies": {
 		"clean-webpack-plugin": "^4.0.0",
 		"copy-webpack-plugin": "^14.0.0",
+		"cross-env": "^10.1.0",
 		"css-loader": "^7.1.4",
+		"dotenv": "^17.4.2",
 		"ejs": "^6.0.1",
 		"ejs-loader": "^0.5.0",
 		"html-loader": "^5.1.0",

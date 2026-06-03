@@ -6,6 +6,7 @@ const ejs = require('ejs')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+require('dotenv').config()
 
 const isBuild = process.env.NODE_ENV === 'production'
 if (isBuild && !process.env.BASE_URL) {
