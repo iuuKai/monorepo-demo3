@@ -29,8 +29,13 @@
 			}
 		},
 		{
-			"src": "project-F/nuxt.config.ts",
-			"use": "@nuxtjs/vercel-builder"
+			"src": "project-F/package.json",
+			"use": "@vercel/static-build",
+			"config": {
+				"distDir": "docs/.vuepress/dist",
+				"buildCommand": "yarn docs:build",
+				"installCommand": "yarn install"
+			}
 		}
 	],
 	"rewrites": [
@@ -57,6 +62,10 @@
 		{
 			"source": "/project-E/:path*",
 			"destination": "/project-E/:path*"
+		},
+		{
+			"source": "/project-F/",
+			"destination": "/project-F/index.html"
 		},
 		{
 			"source": "/project-F/:path*",
