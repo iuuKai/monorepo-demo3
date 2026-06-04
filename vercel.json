@@ -27,6 +27,10 @@
 				"buildCommand": "node build.js",
 				"distDir": "dist"
 			}
+		},
+		{
+			"src": "project-F/nuxt.config.ts",
+			"use": "@nuxtjs/vercel-builder"
 		}
 	],
 	"rewrites": [
@@ -53,6 +57,10 @@
 		{
 			"source": "/project-E/:path*",
 			"destination": "/project-E/:path*"
+		},
+		{
+			"source": "/project-F/:path*",
+			"destination": "/project-F/:path*"
 		},
 		{
 			"source": "/:path*",
