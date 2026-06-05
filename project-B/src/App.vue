@@ -19,7 +19,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-const isBuild = import.meta.env.BASE_URL !== '/'
+const isBuild = import.meta.env.MODE === 'production'
 const router = useRouter()
 const navItems = ref([
 	{

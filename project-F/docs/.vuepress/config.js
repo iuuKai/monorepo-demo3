@@ -31,7 +31,7 @@ export default defineUserConfig({
 				{
 					title: '关于',
 					collapsable: false,
-					children: ['', 'page1']
+					children: ['', 'page1', 'page2']
 				}
 			]
 		}

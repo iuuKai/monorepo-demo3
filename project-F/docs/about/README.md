@@ -19,18 +19,12 @@
 <script setup>
 import { ref, onBeforeMount } from 'vue'
 
-const props = defineProps({
-	isBuild: {
-		type: Boolean,
-		default: false
-	}
-})
-
+const isBuild = import.meta.env.MODE === 'production'
 const userList = ref([])
 const isLoading = ref(true)
 
 onBeforeMount(async () => {
-	if (props.isBuild) {
+	if (isBuild) {
 		userList.value = await fetch('/api/user/all')
 			.then(res => res.json())
 			.then(res => {

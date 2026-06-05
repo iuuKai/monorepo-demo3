@@ -4,7 +4,7 @@ import '@/assets/js/common.js'
 import './index.css'
 import $ from 'jquery'
 
-const isBuild = __webpack_public_path__ !== '/'
+const isBuild = process.env.NODE_ENV === 'production'
 const $userList = $('.user-list')
 
 // 显示加载状态
