@@ -1431,6 +1431,11 @@ domutils@^3.0.1, domutils@^3.2.2:
     domelementtype "^2.3.0"
     domhandler "^5.0.3"
 
+dotenv@^17.4.2:
+  version "17.4.2"
+  resolved "https://registry.npmmirror.com/dotenv/-/dotenv-17.4.2.tgz#c07e54a746e11eba021dd9e1047ced5afdc1c034"
+  integrity sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==
+
 electron-to-chromium@^1.5.328:
   version "1.5.367"
   resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.5.367.tgz#ceae3cb3f2939d03a4f0f9b70caf93b7400fa705"
