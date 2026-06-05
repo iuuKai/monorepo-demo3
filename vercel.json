@@ -72,6 +72,14 @@
 			"destination": "/project-F/:path*"
 		},
 		{
+			"source": "/project-G/",
+			"destination": "/project-G/index.html"
+		},
+		{
+			"source": "/project-G/:path*",
+			"destination": "/project-G/:path*"
+		},
+		{
 			"source": "/:path*",
 			"destination": "/project-A/app.js"
 		}

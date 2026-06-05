@@ -9,7 +9,7 @@ actions:
   - text: 关于
     link: /about/
     type: default
-  - text: 404
+  - text: '404'
     link: /404/
     type: default
 footer: Powered by VuePress
