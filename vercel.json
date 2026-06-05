@@ -36,6 +36,15 @@
 				"buildCommand": "yarn docs:build",
 				"installCommand": "yarn install"
 			}
+		},
+		{
+			"src": "project-G/package.json",
+			"use": "@vercel/static-build",
+			"config": {
+				"distDir": "docs/.vitepress/dist",
+				"buildCommand": "yarn docs:build",
+				"installCommand": "yarn install"
+			}
 		}
 	],
 	"rewrites": [
